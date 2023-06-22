@@ -70,7 +70,7 @@ const OrderDetails = props => {
     };
     props.orderStatusChange(payload);
   };
-  const onPickup = () => {
+  const onPickup = (status) => {
     console.log(payload, 'payload.......');
     setDropLoader(true);
     const {params = {}} = props.route;
@@ -333,18 +333,36 @@ const OrderDetails = props => {
             height: spacing(90),
             paddingVertical: spacing(10),
           }}>
-          {data.status ===1 || data.status === 2 ? (
-            <RoundBtn
+
+            {
+              data?.status  === 1
+                ?
+                <RoundBtn
+                loading={dropLoader}
+                onPress={() => {onPickup(2)}}
+                titleStyle={{
+                  fontSize: fontSize(18),
+                  fontFamily: fonts.bold,
+                  color: colors.white,
+                }}
+                title={LngCode.OUT_FOR_PICKUP}
+              />
+              :
+              data?.status === 2
+              ?
+              <RoundBtn
               loading={dropLoader}
-              onPress={onPickup}
+              onPress={() => {onPickup(3)}}
               titleStyle={{
                 fontSize: fontSize(18),
                 fontFamily: fonts.bold,
                 color: colors.white,
               }}
-              title={LngCode.PICK_UP_LABEL}
+              title={LngCode.PICKED_UP}
             />
-          ) : data.status=== 5 ? (
+            :
+            data?.status === 5
+            ?
             <RoundBtn
               loading={dropLoader}
               onPress={onDropup}
@@ -353,9 +371,12 @@ const OrderDetails = props => {
                 fontFamily: fonts.bold,
                 color: colors.white,
               }}
-              title={LngCode.DROP_OFF_LABEL}
+              title={LngCode.DELIVERED}
             />
-          ) : null}
+            :
+            <></>
+              
+            }
         </View>
       ) : null}
     </Background>

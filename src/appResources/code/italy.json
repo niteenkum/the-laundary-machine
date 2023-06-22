@@ -66,5 +66,9 @@
     
    "MSG_NO_HOSTORY" :"No history available \nStart accepting new orders" ,
    "MSG_NO_NOTI" :"No Notification",
-   "MSG_NO_ORDERS" :"Order not available"
+   "MSG_NO_ORDERS" :"Order not available",
+
+   "OUT_FOR_PICKUP" : "Out for Pickup",
+   "PICKED_UP": "Picked up",
+   "DELIVERED" : "Delivered"
 }
