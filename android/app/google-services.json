@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "769788535739",
+    "firebase_url": "https://ambrogio-ff7c6.firebaseio.com",
+    "project_id": "ambrogio-ff7c6",
+    "storage_bucket": "ambrogio-ff7c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769788535739:android:97a63650ca4a08b3265a9e",
+        "android_client_info": {
+          "package_name": "com.thelaundrymachindriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769788535739-oca9c7r1h76tbvojm68fiutg2o4fe3t2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thelaundrymachindriver",
+            "certificate_hash": "2812b8220510626ba6770e043e8d1c9933630fb1"
+          }
+        },
+        {
+          "client_id": "769788535739-5ng5jebv6g4faqn89f7l62vain7cd0da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmqfsaHV5YtA2n7y9wKoX1JPl2a0hBCpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769788535739-5ng5jebv6g4faqn89f7l62vain7cd0da.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "769788535739-cgofl1jpoggh9bg8lpfr531cchpk5rn1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.ambrogio"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769788535739:android:f4f664ad81bcb737265a9e",
+        "android_client_info": {
+          "package_name": "com.thelaundrymachindriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769788535739-9agm8ku9vksep11iraha4clp3u3vlgeg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thelaundrymachindriver",
+            "certificate_hash": "2812b8220510626ba6770e043e8d1c9933630fb1"
+          }
+        },
+        {
+          "client_id": "769788535739-5ng5jebv6g4faqn89f7l62vain7cd0da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmqfsaHV5YtA2n7y9wKoX1JPl2a0hBCpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769788535739-5ng5jebv6g4faqn89f7l62vain7cd0da.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "769788535739-cgofl1jpoggh9bg8lpfr531cchpk5rn1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.ambrogio"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

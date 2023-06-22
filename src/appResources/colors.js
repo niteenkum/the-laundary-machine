@@ -1,0 +1,22 @@
+const colors = {
+  red: '#F52D56',
+  primary: '#074279', //  '#FF6C00',
+  primary2: '#ff2600', //'#DC5E02',
+  noti: '#3E48A500',
+  card2: '#FDA521',
+  card: '#61C6C1',
+  darkBlue: '#242A37',
+  yollow: '#FFD428',
+  green: '#44C709',
+  title: '#262628',
+  white: '#FFFFFF',
+  gray: '#C0C0C0',
+  gray2: '#BEC2CE',
+  gray3: '#BCBCBC',
+  ligthGray: '#F1F2F6',
+  ligthGray2: '#F7F7F7',
+  ligthGray3: '#F7F8FA',
+  transWhite: '#ffffffee',
+  black: '#000000',
+};
+export default colors;
