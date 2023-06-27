@@ -70,13 +70,13 @@ const OrderDetails = props => {
     };
     props.orderStatusChange(payload);
   };
-  const onPickup = (status) => {
+  const onPickup = (sta) => {
     console.log(payload, 'payload.......');
     setDropLoader(true);
     const {params = {}} = props.route;
     const payload = {
       order_id: params.orderid,
-      status: 2,
+      status: sta,
     };
     props.orderStatusChange(payload);
   };
