@@ -80,9 +80,18 @@ const ItemCart = props => {
         </TextBox>
       );
   };
+  // const getAddress = (data = {}) => {
+  //   const {address1, address2, landmark, zipcode} = data;
+  //   return `${landmark || ""} - ${address1  || ""} ${address2  || ""} ${zipcode  || ""}`;
+  // };
   const getAddress = (data = {}) => {
-    const {address1, address2, landmark, zipcode} = data;
+    const address1 = data?.address1 || '';
+    const address2 = data?.address2 || '';
+    const landmark = data?.landmark || '';
+    const zipcode = data?.zipcode || '';
+
     return `${landmark} - ${address1} ${address2} ${zipcode}`;
+
   };
   return (
     <Card onPress={props.onPress} style={[styles.card5, props.style]}>

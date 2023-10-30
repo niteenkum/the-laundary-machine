@@ -70,7 +70,7 @@ const OrderDetails = props => {
     };
     props.orderStatusChange(payload);
   };
-  const onPickup = (sta) => {
+  const onPickup = sta => {
     console.log(payload, 'payload.......');
     setDropLoader(true);
     const {params = {}} = props.route;
@@ -291,25 +291,32 @@ const OrderDetails = props => {
 
           {out ? (
             <View style={{flexDirection: 'row'}}>
-              {data?.phone || data?.delivery_address?.phone || data?.customer?.phone ? <Card
-                type="RAUND"
-                onPress={() =>
-                  onCalling( data?.delivery_address?.phone || data?.phone || data?.customer?.phone)
-                  
-                }
-                style={{
-                  flex: 1,
-                  backgroundColor: colors.green,
-                  height: spacing(65),
-                }}>
-                <PhoneIcon size={spacing(24)} />
-                <TextBox type="body2" color="white">
-                  {LngCode.CALL_LEBEL}
-                </TextBox>
-              </Card>
-              : <></>  
-            }
-              {data?.delivery_address?.lat && data?.delivery_address?.lng ? <Card
+              {data?.phone ||
+              data?.delivery_address?.phone ||
+              data?.customer?.phone ? (
+                <Card
+                  type="RAUND"
+                  onPress={() =>
+                    onCalling(
+                      data?.delivery_address?.phone ||
+                        data?.phone ||
+                        data?.customer?.phone,
+                    )
+                  }
+                  style={{
+                    flex: 1,
+                    backgroundColor: colors.green,
+                    height: spacing(65),
+                  }}>
+                  <PhoneIcon size={spacing(24)} />
+                  <TextBox type="body2" color="white">
+                    {LngCode.CALL_LEBEL}
+                  </TextBox>
+                </Card>
+              ) : (
+                <></>
+              )}
+              {/* {data?.delivery_address?.lat && data?.delivery_address?.lng ? <Card
                 onPress={() => onMoveTo('TrackUser', {orderid: order.id})}
                 type="RAUND"
                 style={{
@@ -317,9 +324,43 @@ const OrderDetails = props => {
                   backgroundColor: colors.gray3,
                   height: spacing(65),
                 }}>
-                {/* <SenderIcon size={spacing(24)} /> */}
                 <TextBox type="body2">{LngCode.LOCATION_LABEL}</TextBox>
-              </Card> : <></>}
+              </Card> : <></>} */}
+              {data?.status >= 4 ? (
+                <Card
+                  onPress={
+                    data?.pickup_address?.address_url
+                      ? () => {
+                          Linking.openURL(data?.pickup_address?.address_url);
+                        }
+                      : null
+                  }
+                  type="RAUND"
+                  style={{
+                    flex: 1,
+                    backgroundColor: colors.gray3,
+                    height: spacing(65),
+                  }}>
+                  <TextBox type="body2">{LngCode.LOCATION_LABEL}</TextBox>
+                </Card>
+              ) : (
+                <Card
+                  onPress={
+                    data?.delivery_address?.address_url
+                      ? () => {
+                          Linking.openURL(data?.delivery_address?.address_url);
+                        }
+                      : null
+                  }
+                  type="RAUND"
+                  style={{
+                    flex: 1,
+                    backgroundColor: colors.gray3,
+                    height: spacing(65),
+                  }}>
+                  <TextBox type="body2">{LngCode.LOCATION_LABEL}</TextBox>
+                </Card>
+              )}
             </View>
           ) : null}
         </ItemCard>
@@ -333,26 +374,25 @@ const OrderDetails = props => {
             height: spacing(90),
             paddingVertical: spacing(10),
           }}>
-
-            {
-              data?.status  === 1
-                ?
-                <RoundBtn
-                loading={dropLoader}
-                onPress={() => {onPickup(2)}}
-                titleStyle={{
-                  fontSize: fontSize(18),
-                  fontFamily: fonts.bold,
-                  color: colors.white,
-                }}
-                title={LngCode.OUT_FOR_PICKUP}
-              />
-              :
-              data?.status === 2
-              ?
-              <RoundBtn
+          {data?.status === 1 ? (
+            <RoundBtn
               loading={dropLoader}
-              onPress={() => {onPickup(3)}}
+              onPress={() => {
+                onPickup(2);
+              }}
+              titleStyle={{
+                fontSize: fontSize(18),
+                fontFamily: fonts.bold,
+                color: colors.white,
+              }}
+              title={LngCode.OUT_FOR_PICKUP}
+            />
+          ) : data?.status === 2 ? (
+            <RoundBtn
+              loading={dropLoader}
+              onPress={() => {
+                onPickup(3);
+              }}
               titleStyle={{
                 fontSize: fontSize(18),
                 fontFamily: fonts.bold,
@@ -360,9 +400,7 @@ const OrderDetails = props => {
               }}
               title={LngCode.PICKED_UP}
             />
-            :
-            data?.status === 5
-            ?
+          ) : data?.status === 5 ? (
             <RoundBtn
               loading={dropLoader}
               onPress={onDropup}
@@ -373,10 +411,9 @@ const OrderDetails = props => {
               }}
               title={LngCode.DELIVERED}
             />
-            :
+          ) : (
             <></>
-              
-            }
+          )}
         </View>
       ) : null}
     </Background>
@@ -397,4 +434,3 @@ export default connect(mapStateToProps, {
   onOrderDetails,
   orderStatusChange,
 })(OrderDetails);
-
